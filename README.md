@@ -1,6 +1,8 @@
 
 **SyncroPath**
 
+------------------------------------------------------------------------------------------------------------------------------------------
+
 **Pipeline -**
 
 A high-performance, multi-agent orchestration system that transforms a Resume (PDF) and Job Description (Text) into a structured, actionable preparation dashboard. Powered by FastAPI, Groq (Llama 3.3-70B), and DuckDuckGo Search.
@@ -59,7 +61,9 @@ Advanced Token Management RAG & Context Pruning: Implementing techniques to shor
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-**Modular Service Orchestration (Select/Subtract) User-Defined Services: Before running the pipeline, users will be able to toggle specific data sources:**
+**Modular Service Orchestration (Select/Subtract) User-Defined Services:**
+
+Before running the pipeline, users will be able to toggle specific data sources:
 
 YouTube: For video-based tutorials.
 
