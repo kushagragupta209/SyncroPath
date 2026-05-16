@@ -10,7 +10,9 @@ System Architecture & Flow The system follows a Sequential Orchestration Pattern
 The Input Layer Frontend (HTML/Tailwind): A modern dark-mode dashboard where users upload a PDF resume and paste a Job Description.
 FastAPI Backend: Receives the multipart form data, parses the PDF bytes using pypdf, and consolidates the text into a single context block.
 
-**The Agentic Core The pipeline triggers four specialized agents in a specific sequence:**
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+**The Agentic Core - The pipeline triggers four specialized agents in a specific sequence:**
 
 Agent 1 (Researcher): Uses the DuckDuckGo Search Client to scrape Reddit and Quora for "boots-on-the-ground" interview experiences.
 
@@ -23,6 +25,8 @@ Agent 4 (Planner): Generates a 4-week structured preparation timetable.
 The Supervisor & Visualization The Supervisor: Acts as a quality control layer, validating that all agent outputs are present and conforming to a Strict JSON Schema.
 Dashboard Renderer: The frontend JS engine parses the JSON, structures links into clickable bullet points, and handles navigation via tabs.
 
+-------------------------------------------------------------------------------------------------------------------------------------------
+
 **Tech Stack Backend:** Python 3.10+, FastAPI, Uvicorn
 
 **AI:** Groq SDK (Llama-3.3-70b-versatile)
@@ -30,6 +34,8 @@ Dashboard Renderer: The frontend JS engine parses the JSON, structures links int
 **Search:** DuckDuckGo-Search (Python Package)
 
 **Frontend:** HTML5, Tailwind CSS, Lucide Icons, Vanilla JS
+
+-------------------------------------------------------------------------------------------------------------------------------------------
 
 **Getting Started**
 
@@ -50,6 +56,8 @@ Enterprise Search Integration Brave API Transition: Replacing DuckDuckGo with th
 Interactive AI Interviewer Automated Mock Interviews: A new agent that uses the Job Description to generate role-specific behavioral and technical questions, allowing the user to type (or speak) answers for real-time AI feedback.
 
 Advanced Token Management RAG & Context Pruning: Implementing techniques to shorten input token counts, such as summarizing the resume or using vector embeddings to only feed the most relevant parts of the Job Description to the LLM.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
 
 **Modular Service Orchestration (Select/Subtract) User-Defined Services: Before running the pipeline, users will be able to toggle specific data sources:**
 
