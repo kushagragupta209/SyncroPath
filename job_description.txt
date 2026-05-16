@@ -1,0 +1,32 @@
+Minimum qualifications:
+
+PhD degree in Computer Science, a related field, or equivalent practical experience.
+4 years of experience with research agendas across multiple teams or projects.
+Experience in one or more areas of machine learning, such as large language models, natural language processing, or data processing.
+One or more scientific publication submissions for conferences, journals, or public repositories (such as CVPR, ICCV, NeurIPS, ICML, ICLR, etc.).
+
+Preferred qualifications:
+
+Experience in deploying ML models in production.
+Experience in ads or search quality research.
+Experience coding in Python.
+Experience in generative AI and large language model research.
+About the job
+
+As an organization, Google maintains a portfolio of research projects driven by fundamental research, new product innovation, product contribution and infrastructure goals, while providing individuals and teams the freedom to emphasize specific types of work. As a Research Scientist, you'll setup large-scale tests and deploy promising ideas quickly and broadly, managing deadlines and deliverables while applying the latest theories to develop new and improved products, processes, or technologies. From creating experiments and prototyping implementations to designing new architectures, our research scientists work on real-world problems that span the breadth of computer science, such as machine (and deep) learning, data mining, natural language processing, hardware and software performance analysis, improving compilers for mobile platforms, as well as core search and much more.
+
+As a Research Scientist, you'll also actively contribute to the wider research community by sharing and publishing your findings, with ideas inspired by internal projects as well as from collaborations with research programs at partner universities and technical institutes all over the world.
+
+The Ads Generative AI (Gen AI) team develops ML models to show high quality ads that power the free internet for everyone. In particular, the team works on adapting Gemini models for various ads tasks through automated prompt engineering, fine tuning, and reinforcement learning. In this role, you will help develop techniques in a team that has a mix of research scientists and engineers and work closely with Google DeepMind and Search.Google Ads is helping power the open internet with the best technology that connects and creates value for people, publishers, advertisers, and Google. We’re made up of multiple teams, building Google’s Advertising products including search, display, shopping, travel and video advertising, as well as analytics. Our teams create trusted experiences between people and businesses with useful ads. We help grow businesses of all sizes from small businesses, to large brands, to YouTube creators, with effective advertiser tools that deliver measurable results. We also enable Google to engage with customers at scale.
+
+The US base salary range for this full-time position is $207,000-$300,000 + bonus + equity + benefits. Our salary ranges are determined by role, level, and location. Within the range, individual pay is determined by work location and additional factors, including job-related skills, experience, and relevant education or training. Your recruiter can share more about the specific salary range for your preferred location during the hiring process.
+
+Please note that the compensation details listed in US role postings reflect the base salary only, and do not include bonus, equity, or benefits. Learn more about benefits at Google.
+
+Responsibilities
+
+Develop novel ML modeling techniques that influence products.
+Work with and fine tune LLMs for targeting, large-scale retrieval, pseudo-rater, and other ads applications.
+Work with researchers and engineers in Google DeepMind and Search.
+Work with product teams to develop and deploy user-facing products.
+Publish papers at leading ML conferences.

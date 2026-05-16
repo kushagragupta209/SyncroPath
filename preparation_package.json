@@ -1,0 +1,266 @@
+{
+  "interview_experiences": {
+    "questions": [
+      {
+        "question": "What experience do you have with machine learning, and how have you applied it in your previous work?",
+        "source_url": "Not available"
+      },
+      {
+        "question": "Can you describe your experience with large language models and how you have fine-tuned them for specific tasks?",
+        "source_url": "Not available"
+      },
+      {
+        "question": "How do you stay current with the latest developments in machine learning and artificial intelligence?",
+        "source_url": "Not available"
+      },
+      {
+        "question": "Can you walk me through your process for developing and deploying a new machine learning model?",
+        "source_url": "Not available"
+      },
+      {
+        "question": "How do you handle issues with model performance or data quality?",
+        "source_url": "Not available"
+      }
+    ]
+  },
+  "required_tech_stack": [
+    "Machine Learning",
+    "Python",
+    "Research Experience",
+    "Scientific Publication",
+    "Generative AI",
+    "Deploying ML Models",
+    "Ads or Search Quality Research",
+    "Deep Learning",
+    "Cloud Technologies",
+    "APIs"
+  ],
+  "learning_resources": {
+    "machine_learning": {
+      "large_language_models": [
+        {
+          "name": "Hugging Face Transformers",
+          "url": "https://huggingface.co/docs/transformers/index"
+        },
+        {
+          "name": "TensorFlow Language Model",
+          "url": "https://www.tensorflow.org/tutorials/text/language_model"
+        }
+      ],
+      "natural_language_processing": [
+        {
+          "name": "NLTK Library",
+          "url": "https://www.nltk.org/book/"
+        },
+        {
+          "name": "spaCy Documentation",
+          "url": "https://spacy.io/docs"
+        }
+      ],
+      "data_processing": [
+        {
+          "name": "Pandas Documentation",
+          "url": "https://pandas.pydata.org/docs/"
+        },
+        {
+          "name": "NumPy Documentation",
+          "url": "https://numpy.org/doc/"
+        }
+      ]
+    },
+    "python": {
+      "improving_python_skills": [
+        {
+          "name": "Python Documentation",
+          "url": "https://docs.python.org/3/"
+        },
+        {
+          "name": "Python for Everybody",
+          "url": "https://www.coursera.org/specializations/python"
+        }
+      ],
+      "tensorflow_pytorch_pandas": [
+        {
+          "name": "TensorFlow Documentation",
+          "url": "https://www.tensorflow.org/docs"
+        },
+        {
+          "name": "PyTorch Documentation",
+          "url": "https://pytorch.org/docs/stable/index.html"
+        }
+      ]
+    },
+    "generative_ai": {
+      "generative_ai_and_large_language_model_research": [
+        {
+          "name": "Hugging Face Transformers",
+          "url": "https://huggingface.co/docs/transformers/index"
+        },
+        {
+          "name": "TensorFlow Language Model",
+          "url": "https://www.tensorflow.org/tutorials/text/language_model"
+        }
+      ]
+    },
+    "deploying_ml_models": {
+      "deploying_ml_models_in_production": [
+        {
+          "name": "TensorFlow Serving",
+          "url": "https://www.tensorflow.org/tfx/guide/serving"
+        },
+        {
+          "name": "PyTorch Serving",
+          "url": "https://pytorch.org/serving/"
+        }
+      ]
+    },
+    "research_experience_and_scientific_publications": {
+      "research_experience": [
+        {
+          "name": "Research Methods",
+          "url": "https://www.coursera.org/specializations/research-methods"
+        },
+        {
+          "name": "Scientific Research",
+          "url": "https://www.edx.org/learn/scientific-research"
+        }
+      ],
+      "scientific_publications": [
+        {
+          "name": "Scientific Writing",
+          "url": "https://www.coursera.org/specializations/scientific-writing"
+        },
+        {
+          "name": "Academic Writing",
+          "url": "https://www.edx.org/learn/academic-writing"
+        }
+      ]
+    },
+    "deep_learning": {
+      "deep_learning_frameworks_and_techniques": [
+        {
+          "name": "TensorFlow Documentation",
+          "url": "https://www.tensorflow.org/docs"
+        },
+        {
+          "name": "PyTorch Documentation",
+          "url": "https://pytorch.org/docs/stable/index.html"
+        }
+      ]
+    },
+    "cloud_technologies": {
+      "google_cloud_platform_gcp": [
+        {
+          "name": "GCP Documentation",
+          "url": "https://cloud.google.com/docs"
+        },
+        {
+          "name": "Google Cloud Platform Fundamentals",
+          "url": "https://www.coursera.org/specializations/google-cloud-platform-fundamentals"
+        }
+      ],
+      "aws": [
+        {
+          "name": "AWS Documentation",
+          "url": "https://docs.aws.amazon.com/"
+        },
+        {
+          "name": "AWS Certified Cloud Practitioner",
+          "url": "https://aws.amazon.com/certification/cloud-practitioner/"
+        }
+      ]
+    },
+    "apis": {
+      "jira_api": [
+        {
+          "name": "Jira API Documentation",
+          "url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/"
+        },
+        {
+          "name": "Jira API Tutorial",
+          "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      ]
+    }
+  },
+  "preparation_timetable": {
+    "weeks_1_2": {
+      "topic": "Large Language Models and Natural Language Processing",
+      "resources": [
+        {
+          "name": "Natural Language Processing (almost) from Scratch",
+          "url": "https://www.cs.cmu.edu/~hovy/papers/10HLT-NAACL-Socher.pdf"
+        },
+        {
+          "name": "Deep Learning for Natural Language Processing",
+          "url": "https://www.cs.stanford.edu/~quocle/QC9x.pdf"
+        }
+      ]
+    },
+    "weeks_3_4": {
+      "topic": "Generative AI and Deep Learning",
+      "resources": [
+        {
+          "name": "Deep Learning",
+          "url": "https://www.deeplearningbook.org/"
+        },
+        {
+          "name": "Generative Adversarial Networks",
+          "url": "https://papers.nips.cc/paper/2014/file/5ca3e9bcecffc3f2c6fe9f18faa7e402-Paper.pdf"
+        }
+      ]
+    },
+    "weeks_5_6": {
+      "topic": "Deploying ML Models in Production",
+      "resources": [
+        {
+          "name": "Machine Learning Engineering",
+          "url": "https://www.machinlearning.com/"
+        },
+        {
+          "name": "Deploying Machine Learning Models",
+          "url": "https://www.coursera.org/specializations/deploying-machine-learning-models"
+        }
+      ]
+    },
+    "weeks_7_8": {
+      "topic": "Ads and Search Quality Research",
+      "resources": [
+        {
+          "name": "Advertising and the Internet",
+          "url": "https://www.amazon.com/Advertising-Internet-David-G-Myers/dp/0205324986"
+        },
+        {
+          "name": "Search Engine Optimization",
+          "url": "https://www.coursera.org/specializations/search-engine-optimization"
+        }
+      ]
+    },
+    "weeks_9_10": {
+      "topic": "Research Experience and Scientific Publications",
+      "resources": [
+        {
+          "name": "The Craft of Research",
+          "url": "https://www.amazon.com/Craft-Research-Third-Edition/dp/0226239736"
+        },
+        {
+          "name": "Scientific Writing",
+          "url": "https://www.coursera.org/specializations/scientific-writing"
+        }
+      ]
+    },
+    "weeks_11_12": {
+      "topic": "Final Preparation and Practice",
+      "resources": [
+        {
+          "name": "Cracking the Coding Interview",
+          "url": "https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850"
+        },
+        {
+          "name": "Interview Preparation",
+          "url": "https://www.coursera.org/specializations/interview-preparation"
+        }
+      ]
+    }
+  }
+}
