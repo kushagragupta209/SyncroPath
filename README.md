@@ -51,17 +51,17 @@ Run Backend: python app.py
 
 Open UI: Launch index.html in your browser.
 
-Future Scope & Roadmap We are moving towards a more modular, "Plug-and-Play" architecture. Below are the planned upgrades:
-
-Enterprise Search Integration Brave API Transition: Replacing DuckDuckGo with the Brave Search API for higher rate limits, cleaner metadata, and more consistent forum filtering.
-
-Interactive AI Interviewer Automated Mock Interviews: A new agent that uses the Job Description to generate role-specific behavioral and technical questions, allowing the user to type (or speak) answers for real-time AI feedback.
-
-Advanced Token Management RAG & Context Pruning: Implementing techniques to shorten input token counts, such as summarizing the resume or using vector embeddings to only feed the most relevant parts of the Job Description to the LLM.
-
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-**Modular Service Orchestration (Select/Subtract) User-Defined Services:**
+**Future Scope & Roadmap We are moving towards a more modular, "Plug-and-Play" architecture. Below are the planned upgrades:**
+
+1. Enterprise Search Integration Brave API Transition: Replacing DuckDuckGo with the Brave Search API for higher rate limits, cleaner metadata, and more consistent forum filtering.
+
+2. Interactive AI Interviewer Automated Mock Interviews: A new agent that uses the Job Description to generate role-specific behavioral and technical questions, allowing the user to type (or speak) answers for real-time AI feedback.
+
+3. Advanced Token Management RAG & Context Pruning: Implementing techniques to shorten input token counts, such as summarizing the resume or using vector embeddings to only feed the most relevant parts of the Job Description to the LLM.
+
+4. Modular Service Orchestration (Select/Subtract) User-Defined Services:
 
 Before running the pipeline, users will be able to toggle specific data sources:
 
@@ -73,4 +73,4 @@ Stack Overflow: For deep technical debugging patterns.
 
 GitHub: For project-based learning examples.
 
-LLM Upgrading Enterprise LLMs: Moving beyond free-tier APIs to high-throughput models (e.g., GPT-4o or Claude 3.5 Sonnet) for deeper reasoning and more accurate "Gap Analysis."
+5. LLM Upgrading Enterprise LLMs: Moving beyond free-tier APIs to high-throughput models (e.g., GPT-4o or Claude 3.5 Sonnet) for deeper reasoning and more accurate "Gap Analysis."
