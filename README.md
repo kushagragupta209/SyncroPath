@@ -30,7 +30,7 @@ Agent 2 (Analyst): Conducts a "Gap Analysis" between the candidate's current ski
 
 Agent 3 (Curator): Maps the identified skill gaps to high-quality documentation and video links.
 
-<img width="502" height="312" alt="Screenshot 1948-02-27 at 13 03 38" src="https://github.com/user-attachments/assets/cc4bd56a-de0e-4451-9e99-b6a9a70dd6e9" />
+<img width="1037" height="435" alt="Screenshot 1948-02-27 at 18 12 17" src="https://github.com/user-attachments/assets/d0d5be16-8d67-4ee4-bcf5-68e4178525fb" />
 
 
 Agent 4 (Planner): Generates a weekly structured preparation timetable.
