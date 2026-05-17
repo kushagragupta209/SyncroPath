@@ -1,5 +1,5 @@
 
-<img width="1213" height="757" alt="Screenshot 1948-02-27 at 01 26 19" src="https://github.com/user-attachments/assets/a43abcf1-1468-4c4b-99c5-b932a12e2ad2" />
+<img width="1681" height="757" alt="Screenshot 1948-02-27 at 18 14 44" src="https://github.com/user-attachments/assets/f8c602a9-6bea-488d-b392-5af8cd2beba6" />
 
 **SyncroPath**
 
@@ -25,7 +25,7 @@ Agent 1 (Researcher): Uses the DuckDuckGo Search Client to scrape Reddit and Quo
 
 Agent 2 (Analyst): Conducts a "Gap Analysis" between the candidate's current skills and the role requirements.
 
-<img width="1694" height="768" alt="Screenshot 1948-02-27 at 13 03 16" src="https://github.com/user-attachments/assets/c307a34d-0b85-4012-9d14-6ab0b0e7f220" />
+<img width="1586" height="772" alt="Screenshot 1948-02-27 at 18 14 11" src="https://github.com/user-attachments/assets/5d439d1f-0e80-4b17-9f49-7a53ecf059fb" />
 
 
 Agent 3 (Curator): Maps the identified skill gaps to high-quality documentation and video links.
