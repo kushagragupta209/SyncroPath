@@ -64,7 +64,7 @@ async def analyze_job_package(
     # 3. Pipeline Execution
     print("Running Agent 1 (Web Discovery)...")
     search_manager = DuckDuckGoSearchManager()
-    search_query = f"site:reddit.com OR site:quora.com interview experience questions job description"
+    search_query = f"site:geeksforgeeks.org OR site:leetcode.com interview experience questions"
     ddg_search_results = search_manager.execute_search(search_query)
     
     agent1_input = f"{input_context}\n\nLive Web Search Reference Context:\n{ddg_search_results}"
@@ -97,4 +97,4 @@ async def analyze_job_package(
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True, log_level="debug")
