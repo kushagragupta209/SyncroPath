@@ -1,3 +1,9 @@
+<img width="1209" height="766" alt="Screenshot 1948-02-27 at 11 59 45" src="https://github.com/user-attachments/assets/1a032c25-8799-43a2-83a1-8a5b886ac4a8" />
+<img width="1215" height="772" alt="Screenshot 1948-02-27 at 11 59 58" src="https://github.com/user-attachments/assets/b62d8ef3-4bee-41d6-a1e4-1a7772af6259" />
+<img width="1207" height="748" alt="Screenshot 1948-02-27 at 01 25 54" src="https://github.com/user-attachments/assets/e2d3d736-af56-4a67-8e1c-62190f908548" />
+<img width="1216" height="745" alt="Screenshot 1948-02-27 at 01 24 13" src="https://github.com/user-attachments/assets/a9b73e6c-d26a-4014-a50a-6be537bf92e4" />
+<img width="1213" height="757" alt="Screenshot 1948-02-27 at 01 26 19" src="https://github.com/user-attachments/assets/e9c61484-0d2f-4b01-a0db-796023afb4be" />
+
 
 **SyncroPath**
 
