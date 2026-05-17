@@ -37,6 +37,10 @@ Agent 4 (Planner): Generates a weekly structured preparation timetable.
 
 <img width="1209" height="766" alt="Screenshot 1948-02-27 at 11 59 45" src="https://github.com/user-attachments/assets/a78cde30-251f-44c8-838c-ec3c3ea0b7ba" />
 
+Agent 5 (ATS persona agent).
+
+<img width="1920" height="991" alt="Screenshot 1948-02-27 at 17 59 01" src="https://github.com/user-attachments/assets/b1a0c396-33da-4363-99b4-97d71e4527ad" />
+
 
 The Supervisor & Visualization The Supervisor: Acts as a quality control layer, validating that all agent outputs are present and conforming to a Strict JSON Schema.
 Dashboard Renderer: The frontend JS engine parses the JSON, structures links into clickable bullet points, and handles navigation via tabs.
