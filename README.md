@@ -33,7 +33,7 @@ Agent 3 (Curator): Maps the identified skill gaps to high-quality documentation 
 <img width="502" height="312" alt="Screenshot 1948-02-27 at 13 03 38" src="https://github.com/user-attachments/assets/cc4bd56a-de0e-4451-9e99-b6a9a70dd6e9" />
 
 
-Agent 4 (Planner): Generates a 4-week structured preparation timetable.
+Agent 4 (Planner): Generates a weekly structured preparation timetable.
 
 <img width="1209" height="766" alt="Screenshot 1948-02-27 at 11 59 45" src="https://github.com/user-attachments/assets/a78cde30-251f-44c8-838c-ec3c3ea0b7ba" />
 
