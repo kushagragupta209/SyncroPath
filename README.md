@@ -20,7 +20,7 @@ FastAPI Backend: Receives the multipart form data, parses the PDF bytes using py
 
 Agent 1 (Researcher): Uses the DuckDuckGo Search Client to scrape Reddit and Quora for "boots-on-the-ground" interview experiences.
 
-<img width="1216" height="745" alt="Screenshot 1948-02-27 at 01 24 13" src="https://github.com/user-attachments/assets/98cc5a01-f11e-4501-babd-c73919403650" />
+<img width="1699" height="774" alt="Screenshot 1948-02-27 at 13 06 01" src="https://github.com/user-attachments/assets/47272025-1def-4546-b02b-c8e4c25acfec" />
 
 
 Agent 2 (Analyst): Conducts a "Gap Analysis" between the candidate's current skills and the role requirements.
