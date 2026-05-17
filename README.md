@@ -25,12 +25,12 @@ Agent 1 (Researcher): Uses the DuckDuckGo Search Client to scrape Reddit and Quo
 
 Agent 2 (Analyst): Conducts a "Gap Analysis" between the candidate's current skills and the role requirements.
 
-<img width="1207" height="748" alt="Screenshot 1948-02-27 at 01 25 54" src="https://github.com/user-attachments/assets/0ec21b9d-9d15-48da-be1a-12481e261104" />
+<img width="1694" height="768" alt="Screenshot 1948-02-27 at 13 03 16" src="https://github.com/user-attachments/assets/c307a34d-0b85-4012-9d14-6ab0b0e7f220" />
 
 
 Agent 3 (Curator): Maps the identified skill gaps to high-quality documentation and video links.
 
-<img width="1215" height="772" alt="Screenshot 1948-02-27 at 11 59 58" src="https://github.com/user-attachments/assets/d6b1839d-dc69-4ee1-b93e-aae1ffba26d8" />
+<img width="502" height="312" alt="Screenshot 1948-02-27 at 13 03 38" src="https://github.com/user-attachments/assets/cc4bd56a-de0e-4451-9e99-b6a9a70dd6e9" />
 
 
 Agent 4 (Planner): Generates a 4-week structured preparation timetable.
