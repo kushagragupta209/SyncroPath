@@ -3,169 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Multi-Agent Prep Terminal</title>
+    <title>PrepTerminal | Agentic ATS & Prep</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.4);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+        details summary::-webkit-details-marker { display: none; }
+        
+        .ats-ring {
+            transition: stroke-dashoffset 1s ease-out;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased">
 
     <!-- INPUT VIEW CONSOLE -->
-    <div id="input-view" class="min-h-screen flex items-center justify-center p-6">
-        <div class="max-w-3xl w-full bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl">
-            <div class="flex items-center gap-4 mb-8">
-                <div class="p-3 bg-indigo-600/20 text-indigo-400 rounded-2xl border border-indigo-500/30">
-                    <i data-lucide="cpu" class="w-8 h-8"></i>
+    <div id="input-view" class="min-h-screen flex items-center justify-center p-6 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-indigo-900/20 via-slate-950 to-slate-950">
+        <div class="max-w-3xl w-full glass-card rounded-[2.5rem] p-10 shadow-2xl border-indigo-500/20">
+            <div class="flex items-center gap-5 mb-10">
+                <div class="p-4 bg-indigo-500/10 text-indigo-400 rounded-2xl border border-indigo-500/20 shadow-[0_0_15px_rgba(99,102,241,0.1)]">
+                    <i data-lucide="shield-half" class="w-10 h-10"></i>
                 </div>
                 <div>
-                    <h1 class="text-2xl font-bold text-white tracking-tight">Agentic Interview Pipeline</h1>
-                    <p class="text-sm text-slate-400">Upload your parameters to initiate the multi-agent orchestration.</p>
+                    <h1 class="text-3xl font-extrabold text-white tracking-tight">PrepTerminal <span class="text-indigo-500">v2.0</span></h1>
+                    <p class="text-slate-400 text-sm">Agentic ATS scoring and multi-modal interview orchestration.</p>
                 </div>
             </div>
 
-            <form id="pipeline-form" class="space-y-6">
-                <!-- Resume File Upload -->
+            <form id="pipeline-form" class="space-y-8">
                 <div>
-                    <label class="block text-sm font-semibold text-slate-300 mb-2">Resume (PDF format only)</label>
-                    <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-slate-700 hover:border-indigo-500/50 bg-slate-950 rounded-2xl cursor-pointer transition-all group">
-                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                            <i data-lucide="file-text" class="w-8 h-8 text-slate-500 group-hover:text-indigo-400 mb-2 transition-colors"></i>
-                            <p class="text-sm text-slate-400 font-medium" id="file-label-text">Click to choose or drop your resume PDF</p>
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-3 ml-1">Document Input</label>
+                    <label class="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-slate-800 hover:border-indigo-500/40 bg-slate-900/30 rounded-[2rem] cursor-pointer transition-all group">
+                        <div class="flex flex-col items-center justify-center">
+                            <i data-lucide="cloud-upload" class="w-8 h-8 text-slate-500 group-hover:text-indigo-400 mb-2 transition-all"></i>
+                            <p class="text-sm text-slate-400 font-medium" id="file-label-text">Drop Resume PDF</p>
                         </div>
                         <input type="file" id="resume" accept=".pdf" class="hidden" required onchange="updateFileLabel()" />
                     </label>
                 </div>
 
-                <!-- Job Description Paste -->
                 <div>
-                    <label class="block text-sm font-semibold text-slate-300 mb-2">Target Job Description</label>
-                    <textarea id="job_description" rows="6" class="w-full bg-slate-950 border border-slate-700/80 rounded-2xl p-4 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-indigo-500 font-sans text-sm tracking-wide leading-relaxed resize-none" placeholder="Paste the full job description requirements here..." required></textarea>
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-3 ml-1">Job Context</label>
+                    <textarea id="job_description" rows="5" class="w-full bg-slate-900/50 border border-slate-800 rounded-[2rem] p-6 text-slate-200 placeholder-slate-700 focus:outline-none focus:border-indigo-500/50 transition-all text-sm leading-relaxed no-scrollbar" placeholder="Paste requirements here..." required></textarea>
                 </div>
 
-                <!-- Run Trigger -->
-                <button type="submit" id="submit-btn" class="w-full bg-indigo-600 hover:bg-indigo-500 active:scale-[0.99] font-bold text-white py-4 px-6 rounded-2xl tracking-wide shadow-lg shadow-indigo-600/20 transition-all flex items-center justify-center gap-2">
-                    <i data-lucide="play" class="w-5 h-5"></i>
-                    <span>Execute Multi-Agent Synthesis</span>
-                </button>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <button type="submit" class="group relative px-6 py-5 bg-indigo-600 hover:bg-indigo-500 rounded-2xl font-bold text-white transition-all shadow-lg shadow-indigo-600/20 flex items-center justify-center gap-3">
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                        <span>Start Prep Synthesis</span>
+                    </button>
+
+                    <button type="button" onclick="calculateATS()" class="px-6 py-5 bg-slate-800 hover:bg-slate-700 rounded-2xl font-bold text-indigo-400 border border-indigo-500/20 transition-all flex items-center justify-center gap-3">
+                        <i data-lucide="target" class="w-5 h-5"></i>
+                        <span>ATS Audit Only</span>
+                    </button>
+                </div>
             </form>
         </div>
     </div>
 
     <!-- LOADING SCREEN -->
     <div id="loading-view" class="hidden min-h-screen flex flex-col items-center justify-center bg-slate-950 p-6">
-        <div class="relative flex items-center justify-center mb-6">
-            <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-indigo-500"></div>
-            <i data-lucide="bot" class="w-6 h-6 text-indigo-400 absolute"></i>
+        <div class="relative flex items-center justify-center mb-10">
+            <div class="animate-spin rounded-full h-20 w-20 border-b-2 border-indigo-500"></div>
+            <i data-lucide="terminal" class="w-8 h-8 text-indigo-400 absolute"></i>
         </div>
-        <h3 class="text-xl font-bold text-white tracking-wide mb-1">Agents at Work</h3>
-        <p class="text-slate-400 text-sm max-w-sm text-center animate-pulse">Consulting DuckDuckGo search indexes, mapping skill discrepancies, and structuring schedules...</p>
+        <h3 class="text-2xl font-black text-white tracking-widest uppercase">Orchestrating Agents</h3>
+        <p id="loading-subtext" class="text-slate-500 text-sm mt-4 animate-pulse font-mono tracking-tighter text-center">Processing Multi-Modal Payload...</p>
     </div>
 
-    <!-- DASHBOARD TERMINAL VIEW -->
+    <!-- DASHBOARD VIEW -->
     <div id="dashboard-view" class="hidden flex h-screen overflow-hidden">
         <!-- SIDEBAR -->
-        <aside class="w-80 bg-slate-900 border-r border-slate-800 flex flex-col justify-between">
-            <div class="p-6">
-                <div class="flex items-center gap-3 mb-8">
-                    <div class="p-2.5 bg-indigo-600/20 text-indigo-400 rounded-xl border border-indigo-500/30">
-                        <i data-lucide="terminal" class="w-6 h-6"></i>
+        <aside class="w-80 bg-slate-900/50 border-r border-slate-800/60 flex flex-col backdrop-blur-xl">
+            <div class="p-8">
+                <div class="flex items-center gap-4 mb-10">
+                    <div class="p-2 bg-indigo-500/10 text-indigo-400 rounded-lg border border-indigo-500/20">
+                        <i data-lucide="layout-grid" class="w-5 h-5"></i>
                     </div>
-                    <div>
-                        <h1 class="font-bold text-lg tracking-tight text-white">PrepTerminal</h1>
-                        <p class="text-xs text-indigo-400/80 font-mono uppercase tracking-wider">Analysis Complete</p>
-                    </div>
+                    <span class="font-black text-xl tracking-tighter uppercase tracking-[0.2em]">Terminal</span>
                 </div>
-                <nav class="space-y-1.5" id="tab-menu"></nav>
+                <nav class="space-y-2" id="tab-menu"></nav>
             </div>
-            <div class="p-6 border-t border-slate-800 bg-slate-950/40">
-                <button onclick="resetToInput()" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-800 text-slate-400 text-sm font-semibold hover:bg-slate-800 hover:text-white transition-all">
-                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Reset Pipeline
+            <div class="mt-auto p-8 border-t border-slate-800/50">
+                <button onclick="resetToInput()" class="w-full flex items-center justify-center gap-2 px-4 py-4 rounded-2xl bg-slate-950 text-slate-500 text-xs font-bold uppercase tracking-widest hover:text-white transition-all border border-slate-800">
+                    <i data-lucide="refresh-cw" class="w-4 h-4"></i> Reset Engine
                 </button>
             </div>
         </aside>
 
         <!-- MAIN WINDOW -->
         <main class="flex-1 flex flex-col min-w-0 bg-slate-950">
-            <header class="h-20 border-b border-slate-800/80 px-8 flex items-center justify-between bg-slate-900/40 backdrop-blur-md">
-                <h2 id="active-tab-title" class="text-xl font-semibold text-white tracking-tight">Interview Experiences</h2>
-                <div class="text-xs text-slate-400 font-mono bg-slate-800/60 px-3 py-1.5 rounded-md border border-slate-700/40">Status: Active Payload</div>
+            <header class="h-24 border-b border-slate-800/60 px-10 flex items-center justify-between">
+                <div>
+                    <h2 id="active-tab-title" class="text-2xl font-extrabold text-white tracking-tight">Intelligence Report</h2>
+                    <p class="text-[10px] text-indigo-400 font-black uppercase tracking-[0.3em] mt-1">Live Node Active</p>
+                </div>
+                <div id="ats-badge" class="hidden px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full flex items-center gap-3">
+                    <span class="text-[10px] font-black text-slate-500 uppercase tracking-widest">ATS Match</span>
+                    <span id="badge-score" class="text-indigo-400 font-black text-sm">--</span>
+                </div>
             </header>
-            <div class="flex-1 overflow-y-auto p-8" id="content-viewport"></div>
+            <div class="flex-1 overflow-y-auto p-10 no-scrollbar" id="content-viewport"></div>
         </main>
     </div>
 
-    <!-- APPLICATION SCRIPTS -->
     <script>
         let payloadData = null;
         let activeTab = 'experiences';
 
         const config = [
-            { id: 'experiences', title: 'Interview Experiences', icon: 'message-square-quote' },
-            { id: 'techstack', title: 'Tech Stack Needed', icon: 'layers' },
-            { id: 'resources', title: 'Learning Resources', icon: 'bookmark-check' },
-            { id: 'timetable', title: 'Study Timetable', icon: 'calendar-range' }
+            { id: 'experiences', title: 'Interview Intel', icon: 'zap' },
+            { id: 'techstack', title: 'Tech Blueprint', icon: 'cpu' },
+            { id: 'timetable', title: 'Execution Plan', icon: 'calendar' },
+            { id: 'ats_audit', title: 'ATS Scorecard', icon: 'target' }
         ];
 
         function updateFileLabel() {
-            const fileInput = document.getElementById('resume');
-            const labelText = document.getElementById('file-label-text');
-            if (fileInput.files.length > 0) {
-                labelText.innerText = `Selected: ${fileInput.files[0].name}`;
-                labelText.classList.add('text-indigo-400');
-            }
+            const input = document.getElementById('resume');
+            const label = document.getElementById('file-label-text');
+            if (input.files.length) label.innerText = input.files[0].name;
+        }
+
+        async function calculateATS() {
+            const resume = document.getElementById('resume').files[0];
+            const jd = document.getElementById('job_description').value;
+            if (!resume || !jd) return alert("Upload resume and paste JD first.");
+            await startPipeline('http://127.0.0.1:8000/api/ats-score', 'ats_audit');
         }
 
         document.getElementById('pipeline-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            const resumeFile = document.getElementById('resume').files[0];
-            const jdText = document.getElementById('job_description').value;
+            await startPipeline('http://127.0.0.1:8000/api/analyze', 'experiences');
+        });
 
-            // Packing form inputs for multipart/form-data transaction
+        async function startPipeline(url, defaultTab) {
             const formData = new FormData();
-            formData.append('resume', resumeFile);
-            formData.append('job_description', jdText);
+            formData.append('resume', document.getElementById('resume').files[0]);
+            formData.append('job_description', document.getElementById('job_description').value);
 
-            // Interface shift to processing state
             document.getElementById('input-view').classList.add('hidden');
             document.getElementById('loading-view').classList.remove('hidden');
 
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/analyze', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (!response.ok) throw new Error('Backend structural processing error occurred.');
-
-                payloadData = await response.json();
+                const response = await fetch(url, { method: 'POST', body: formData });
+                const result = await response.json();
                 
-                // Route viewport to dashboard view
+                if (url.includes('ats-score')) {
+                    payloadData = payloadData ? { ...payloadData, ats_audit: result } : { ats_audit: result };
+                } else {
+                    payloadData = result;
+                }
+
                 document.getElementById('loading-view').classList.add('hidden');
                 document.getElementById('dashboard-view').classList.remove('hidden');
-                switchTab('experiences');
+                
+                if (payloadData.ats_audit) {
+                    document.getElementById('ats-badge').classList.remove('hidden');
+                    document.getElementById('badge-score').innerText = `${payloadData.ats_audit.ats_score}%`;
+                }
 
+                switchTab(defaultTab);
             } catch (err) {
-                alert(`Pipeline Execution Error: ${err.message}`);
+                alert(`Error: ${err.message}`);
                 resetToInput();
             }
-        });
+        }
 
-        function switchTab(tabId) {
-            activeTab = tabId;
-            document.getElementById('active-tab-title').innerText = config.find(c => c.id === tabId).title;
+        function switchTab(id) {
+            activeTab = id;
+            document.getElementById('active-tab-title').innerText = config.find(c => c.id === id).title;
             renderMenu();
             renderContent();
         }
 
         function renderMenu() {
-            const menuContainer = document.getElementById('tab-menu');
-            menuContainer.innerHTML = config.map(tab => {
-                const isActive = tab.id === activeTab;
+            const container = document.getElementById('tab-menu');
+            container.innerHTML = config.map(tab => {
+                const active = tab.id === activeTab;
                 return `
-                    <button onclick="switchTab('${tab.id}')" class="w-full flex items-center gap-3.5 px-4 py-3 rounded-xl font-medium text-sm transition-all duration-200 group ${
-                        isActive ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20 font-semibold' : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
+                    <button onclick="switchTab('${tab.id}')" class="w-full flex items-center gap-4 px-5 py-4 rounded-2xl text-sm font-bold transition-all ${
+                        active ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30' : 'text-slate-500 hover:bg-slate-800/40 hover:text-slate-300'
                     }">
-                        <i data-lucide="${tab.icon}" class="w-5 h-5 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-300'}"></i>
+                        <i data-lucide="${tab.icon}" class="w-5 h-5"></i>
                         <span>${tab.title}</span>
                     </button>
                 `;
@@ -173,139 +209,129 @@
             lucide.createIcons();
         }
 
+        function safeText(v) { return typeof v === 'object' ? JSON.stringify(v) : (v || ""); }
+
+        function formatTextWithBulletLinks(text) {
+            const cleaned = safeText(text);
+            const urlRegex = /(https?:\/\/[^\s)]+)/g;
+            const links = cleaned.match(urlRegex);
+            if (!links || links.length <= 1) return cleaned.replace(urlRegex, u => `<a href="${u}" target="_blank" class="text-indigo-400 underline font-bold">${u}</a>`);
+            let intro = cleaned;
+            links.forEach(u => intro = intro.replace(u, '||S||'));
+            let pieces = intro.split('||S||');
+            return `<div class="space-y-3">${links.map((u, i) => `<div class="flex items-start gap-3"><div class="h-1.5 w-1.5 rounded-full bg-indigo-500 mt-2"></div><div class="text-sm"><a href="${u}" target="_blank" class="text-indigo-400 font-bold">${u}</a></div></div>`).join('')}</div>`;
+        }
+
         function renderContent() {
             const viewport = document.getElementById('content-viewport');
             if (!payloadData) return;
 
-            // Helper function to safely unpack strings or stringified objects
-            function safeText(value) {
-                if (!value) return "";
-                if (typeof value === 'object') {
-                    return Object.entries(value).map(([k, v]) => `${k}: ${typeof v === 'object' ? JSON.stringify(v) : v}`).join(' | ');
-                }
-                return value;
-            }
-
-            // Upgraded helper function that splits text into structured bullet points when multiple links exist
-            function formatTextWithBulletLinks(text) {
-                const cleanedText = safeText(text);
-                
-                // Regex to find Markdown links [Text](URL) or raw HTTP/HTTPS URLs
-                const urlRegex = /(https?:\/\/[^\s)]+)/g;
-                const links = cleanedText.match(urlRegex);
-
-                // If there are no links or just one link, return normal text parsing
-                if (!links || links.length <= 1) {
-                    return cleanedText.replace(urlRegex, function(url) {
-                        let cleanUrl = url.replace(/[.,;:]$/, '');
-                        return `<a href="${cleanUrl}" target="_blank" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 font-medium transition-colors">${cleanUrl}</a>`;
-                    });
-                }
-
-                // If there are multiple links, clean up the text and build a clean vertical bulleted list
-                // Step 1: Strip out generic filler phrases that the LLM generates when bridging links
-                let introductoryText = cleanedText;
-                links.forEach(url => {
-                    introductoryText = introductoryText.replace(url, '||SPLIT||');
-                });
-
-                // Step 2: Clean up remnants of descriptions left behind between the splits
-                let pieces = introductoryText.split('||SPLIT||');
-                
-                let htmlOutput = `<div class="space-y-2">`;
-                
-                // Step 3: Loop through and rebuild them as beautiful dashboard list items
-                links.forEach((url, index) => {
-                    let cleanUrl = url.replace(/[.,;:]$/, '');
-                    let label = pieces[index] ? pieces[index].replace(/^[,\s:|•\-]+|[,\s:|•\-]+$/g, '').trim() : "Resource Link";
-                    
-                    if (!label || label.toLowerCase().includes("check out") || label.toLowerCase().includes("refer to")) {
-                        label = "Official Platform Resource";
-                    }
-
-                    htmlOutput += `
-                        <div class="flex items-start gap-2.5 group/link pl-1">
-                            <span class="text-indigo-500 font-bold mt-1.5 text-xs select-none">•</span>
-                            <div class="text-sm">
-                                <span class="text-slate-400 font-medium">${label}:</span>
-                                <a href="${cleanUrl}" target="_blank" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 font-semibold break-all transition-colors ml-1 inline-flex items-center gap-0.5">
-                                    ${cleanUrl}
-                                    <i data-lucide="external-link" class="w-3 h-3 inline opacity-60 group-hover/link:opacity-100 transition-opacity"></i>
-                                </a>
-                            </div>
-                        </div>`;
-                });
-
-                htmlOutput += `</div>`;
-                return htmlOutput;
-            }
-
             if (activeTab === 'experiences') {
-                const experiences = payloadData.interview_experiences || [];
-                if (experiences.length === 0) {
-                    viewport.innerHTML = `
-                        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl text-center max-w-4xl">
-                            <i data-lucide="search-code" class="w-8 h-8 text-slate-500 mx-auto mb-2"></i>
-                            <p class="text-slate-400 text-sm">No live forum logs found for this niche role. Focus on core parameters in the remaining tech-stack windows!</p>
-                        </div>`;
-                } else {
-                    viewport.innerHTML = `<div class="grid gap-4 max-w-4xl">${experiences.map(item => `
-                        <div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl flex flex-col gap-4 hover:border-slate-700/60 transition-all shadow-md">
-                            <p class="text-slate-200 text-base leading-relaxed">"${safeText(item.question_or_experience)}"</p>
-                            <div>
-                                <a href="${item.source_url || 'https://reddit.com'}" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-400 bg-indigo-500/10 px-3 py-1.5 rounded-lg border border-indigo-500/20 hover:bg-indigo-500/20 transition-all">
-                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Verify Source
-                                </a>
-                            </div>
-                        </div>
-                    `).join('')}</div>`;
-                }
+                const exp = payloadData.interview_experiences || [];
+                viewport.innerHTML = `<div class="grid gap-6 max-w-4xl">${exp.map(item => `<div class="p-8 bg-slate-900/40 border border-slate-800 rounded-[2rem] hover:border-indigo-500/30 transition-all"><p class="text-slate-200 text-lg font-medium leading-relaxed">"${safeText(item.question_or_experience || item)}"</p></div>`).join('')}</div>`;
             } 
             
             else if (activeTab === 'techstack') {
                 const stack = payloadData.required_tech_stack || [];
-                viewport.innerHTML = `<div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">${stack.map(tech => `
-                    <div class="p-5 bg-slate-900 border border-slate-800 rounded-xl flex items-center gap-4">
-                        <div class="h-10 w-10 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center"><i data-lucide="cpu" class="w-5 h-5"></i></div>
-                        <span class="text-slate-100 font-semibold">${safeText(tech)}</span>
-                    </div>
-                `).join('')}</div>`;
-            } 
-            
-            else if (activeTab === 'resources') {
-                const resources = payloadData.learning_resources || {};
-                viewport.innerHTML = `<div class="grid gap-4 max-w-4xl">${Object.entries(resources).map(([tech, desc]) => `
-                    <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl shadow-sm">
-                        <h4 class="text-indigo-400 font-semibold text-lg mb-3 tracking-wide border-b border-slate-800 pb-1.5">${tech}</h4>
-                        <!-- Uses the new multi-bullet line splitting engine -->
-                        <div class="text-slate-300 text-sm leading-relaxed">${formatTextWithBulletLinks(desc)}</div>
-                    </div>
-                `).join('')}</div>`;
-            } 
-            
+                const res = payloadData.learning_resources || {};
+                viewport.innerHTML = `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl">
+                        ${stack.map((t, i) => `
+                            <details class="group glass-card rounded-3xl overflow-hidden transition-all duration-500 border-slate-800/60 hover:border-indigo-500/30">
+                                <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                                    <div class="flex items-center gap-5">
+                                        <div class="h-12 w-12 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center text-indigo-400 font-black text-sm group-hover:bg-indigo-500/10 transition-all">${(i + 1).toString().padStart(2, '0')}</div>
+                                        <h3 class="text-slate-200 font-bold tracking-tight">${t}</h3>
+                                    </div>
+                                    <i data-lucide="plus" class="w-5 h-5 text-slate-600 group-open:rotate-45 transition-all"></i>
+                                </summary>
+                                <div class="px-8 pb-8 pt-2 border-t border-slate-800/50">
+                                    <div class="mt-4 text-slate-400 text-sm leading-relaxed">${formatTextWithBulletLinks(res[t] || "Refer to official documentation for best practices.")}</div>
+                                </div>
+                            </details>
+                        `).join('')}
+                    </div>`;
+            }
+
             else if (activeTab === 'timetable') {
-                const timetable = payloadData.preparation_timetable || {};
-                viewport.innerHTML = `<div class="relative border-l border-slate-800 ml-4 space-y-6 max-w-3xl">${Object.entries(timetable).map(([milestone, target]) => `
-                    <div class="relative pl-8 group">
-                        <div class="absolute -left-2.5 top-1.5 bg-slate-950 border-2 border-indigo-500 rounded-full w-5 h-5"></div>
-                        <div class="p-6 bg-slate-900/50 border border-slate-800/60 rounded-2xl">
-                            <h4 class="text-white font-bold text-md mb-2">${milestone}</h4>
-                            <!-- Applied to timetable text items as well in case timelines contain multiple study guide urls -->
-                            <div class="text-slate-400 text-sm leading-relaxed">${formatTextWithBulletLinks(target)}</div>
+                const table = payloadData.preparation_timetable || {};
+                viewport.innerHTML = `<div class="space-y-4 max-w-4xl">${Object.entries(table).map(([k, v]) => `<div class="p-8 bg-slate-900/30 border border-slate-800 rounded-[2.5rem]"><h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest mb-3">${k}</h4><div class="text-slate-300 text-sm leading-relaxed">${formatTextWithBulletLinks(v)}</div></div>`).join('')}</div>`;
+            }
+
+            else if (activeTab === 'ats_audit') {
+                const audit = payloadData.ats_audit;
+                const resumeFile = document.getElementById('resume').files[0];
+                const resumeURL = resumeFile ? URL.createObjectURL(resumeFile) : null;
+
+                if (!audit) {
+                    viewport.innerHTML = `<div class="p-20 text-center glass-card rounded-[3rem] border-dashed"><i data-lucide="target" class="w-12 h-12 text-slate-800 mx-auto mb-4"></i><p class="text-slate-500 uppercase tracking-widest text-xs">Run Audit for Analysis</p></div>`;
+                    return;
+                }
+
+                viewport.innerHTML = `
+                    <div class="flex flex-col xl:flex-row gap-8 animate-in fade-in duration-700">
+                        <!-- Left: Document Preview -->
+                        <div class="xl:w-1/2 h-[750px] glass-card rounded-[2.5rem] overflow-hidden border-slate-800 shadow-2xl">
+                            <div class="bg-slate-900/80 p-4 border-b border-slate-800 flex justify-between items-center backdrop-blur-md">
+                                <span class="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400">Live Source Analysis</span>
+                                <div class="flex gap-2">
+                                    <div class="h-2 w-2 rounded-full bg-red-500/50"></div>
+                                    <div class="h-2 w-2 rounded-full bg-amber-500/50"></div>
+                                    <div class="h-2 w-2 rounded-full bg-emerald-500/50"></div>
+                                </div>
+                            </div>
+                            <iframe src="${resumeURL}#toolbar=0" class="w-full h-full grayscale-[0.2] contrast-[1.1]"></iframe>
                         </div>
-                    </div>
-                `).join('')}</div>`;
+
+                        <!-- Right: Surgical Feedback -->
+                        <div class="xl:w-1/2 space-y-6">
+                            <div class="p-8 glass-card rounded-[2.5rem] bg-gradient-to-br from-slate-900/50 to-indigo-950/20">
+                                <div class="flex items-center gap-6">
+                                    <div class="relative h-24 w-24 flex-shrink-0 flex items-center justify-center">
+                                        <svg class="absolute inset-0 -rotate-90" viewBox="0 0 100 100">
+                                            <circle cx="50" cy="50" r="45" fill="none" stroke="#1e293b" stroke-width="6" />
+                                            <circle cx="50" cy="50" r="45" fill="none" stroke="#6366f1" stroke-width="6" stroke-dasharray="283" stroke-dashoffset="${283 - (283 * audit.ats_score / 100)}" stroke-linecap="round" class="ats-ring" />
+                                        </svg>
+                                        <span class="text-2xl font-black text-white">${audit.ats_score}%</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-white tracking-tight">${audit.persona_identified}</h3>
+                                        <p class="text-slate-400 italic text-xs leading-relaxed mt-2">${audit.hiring_manager_verdict}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-4">
+                                <div class="p-6 bg-emerald-500/5 border border-emerald-500/20 rounded-[2rem]">
+                                    <div class="flex items-center gap-2 mb-4">
+                                        <i data-lucide="plus-circle" class="w-4 h-4 text-emerald-500"></i>
+                                        <h4 class="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Payload Additions (Add)</h4>
+                                    </div>
+                                    <ul class="space-y-3 text-xs text-slate-300">
+                                        ${(audit.payload_additions || []).map(item => `<li class="flex items-start gap-3"><span class="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0"></span>${item}</li>`).join('')}
+                                    </ul>
+                                </div>
+
+                                <div class="p-6 bg-rose-500/5 border border-rose-500/20 rounded-[2rem]">
+                                    <div class="flex items-center gap-2 mb-4">
+                                        <i data-lucide="minus-circle" class="w-4 h-4 text-rose-500"></i>
+                                        <h4 class="text-[10px] font-black text-rose-500 uppercase tracking-widest">Redundant Nodes (Prune)</h4>
+                                    </div>
+                                    <ul class="space-y-3 text-xs text-slate-300">
+                                        ${(audit.redundant_nodes || []).map(item => `<li class="flex items-start gap-3"><span class="h-1.5 w-1.5 rounded-full bg-rose-500 mt-1.5 shrink-0"></span>${item}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
             }
             lucide.createIcons();
         }
 
         function resetToInput() {
             payloadData = null;
-            document.getElementById('pipeline-form').reset();
-            document.getElementById('file-label-text').innerText = "Click to choose or drop your resume PDF";
-            document.getElementById('file-label-text').classList.remove('text-indigo-400');
+            document.getElementById('ats-badge').classList.add('hidden');
             document.getElementById('dashboard-view').classList.add('hidden');
-            document.getElementById('loading-view').classList.add('hidden');
             document.getElementById('input-view').classList.remove('hidden');
         }
 
