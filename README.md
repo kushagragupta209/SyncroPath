@@ -1,9 +1,4 @@
-<img width="1209" height="766" alt="Screenshot 1948-02-27 at 11 59 45" src="https://github.com/user-attachments/assets/1a032c25-8799-43a2-83a1-8a5b886ac4a8" />
-<img width="1215" height="772" alt="Screenshot 1948-02-27 at 11 59 58" src="https://github.com/user-attachments/assets/b62d8ef3-4bee-41d6-a1e4-1a7772af6259" />
-<img width="1207" height="748" alt="Screenshot 1948-02-27 at 01 25 54" src="https://github.com/user-attachments/assets/e2d3d736-af56-4a67-8e1c-62190f908548" />
-<img width="1216" height="745" alt="Screenshot 1948-02-27 at 01 24 13" src="https://github.com/user-attachments/assets/a9b73e6c-d26a-4014-a50a-6be537bf92e4" />
-<img width="1213" height="757" alt="Screenshot 1948-02-27 at 01 26 19" src="https://github.com/user-attachments/assets/e9c61484-0d2f-4b01-a0db-796023afb4be" />
-
+/Users/kushagragupta/Desktop/Screenshot 1948-02-27 at 01.26.19.png
 
 **SyncroPath**
 
@@ -24,11 +19,19 @@ FastAPI Backend: Receives the multipart form data, parses the PDF bytes using py
 
 Agent 1 (Researcher): Uses the DuckDuckGo Search Client to scrape Reddit and Quora for "boots-on-the-ground" interview experiences.
 
+/Users/kushagragupta/Desktop/Screenshot 1948-02-27 at 01.24.13.png
+
 Agent 2 (Analyst): Conducts a "Gap Analysis" between the candidate's current skills and the role requirements.
+
+/Users/kushagragupta/Desktop/Screenshot 1948-02-27 at 01.25.54.png
 
 Agent 3 (Curator): Maps the identified skill gaps to high-quality documentation and video links.
 
+/Users/kushagragupta/Desktop/Screenshot 1948-02-27 at 11.59.45.png
+
 Agent 4 (Planner): Generates a 4-week structured preparation timetable.
+
+/Users/kushagragupta/Desktop/Screenshot 1948-02-27 at 11.59.58.png
 
 The Supervisor & Visualization The Supervisor: Acts as a quality control layer, validating that all agent outputs are present and conforming to a Strict JSON Schema.
 Dashboard Renderer: The frontend JS engine parses the JSON, structures links into clickable bullet points, and handles navigation via tabs.
